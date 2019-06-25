@@ -64,19 +64,19 @@ open class FSPagerViewCell: UICollectionViewCell {
         return view
     }
     
-    open override var isHighlighted: Bool {
-        set {
-            super.isHighlighted = newValue
-            if newValue {
-                self.selectedForegroundView?.layer.backgroundColor = self.selectionColor.cgColor
-            } else if !super.isSelected {
-                self.selectedForegroundView?.layer.backgroundColor = UIColor.clear.cgColor
-            }
-        }
-        get {
-            return super.isHighlighted
-        }
-    }
+    //    open override var isHighlighted: Bool {
+    //        set {
+    //            super.isHighlighted = newValue
+    //            if newValue {
+    //                self.selectedForegroundView?.layer.backgroundColor = self.selectionColor.cgColor
+    //            } else if !super.isSelected {
+    //                self.selectedForegroundView?.layer.backgroundColor = UIColor.clear.cgColor
+    //            }
+    //        }
+    //        get {
+    //            return super.isHighlighted
+    //        }
+    //    }
     
     open override var isSelected: Bool {
         set {
@@ -101,10 +101,10 @@ open class FSPagerViewCell: UICollectionViewCell {
     fileprivate func commonInit() {
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
-        self.contentView.layer.shadowColor = UIColor.black.cgColor
-        self.contentView.layer.shadowRadius = 5
-        self.contentView.layer.shadowOpacity = 0.75
-        self.contentView.layer.shadowOffset = .zero
+        //        self.contentView.layer.shadowColor = UIColor.black.cgColor
+        //        self.contentView.layer.shadowRadius = 5
+        //        self.contentView.layer.shadowOpacity = 0.75
+        //        self.contentView.layer.shadowOffset = .zero
     }
     
     deinit {
@@ -116,7 +116,7 @@ open class FSPagerViewCell: UICollectionViewCell {
     override open func layoutSubviews() {
         super.layoutSubviews()
         if let imageView = _imageView {
-            imageView.frame = self.contentView.bounds
+            imageView.frame = CGRect(x: 15, y: 4, width: self.bounds.width - 2 * 15, height: 142)
         }
         if let textLabel = _textLabel {
             textLabel.superview!.frame = {
@@ -134,11 +134,11 @@ open class FSPagerViewCell: UICollectionViewCell {
                 return rect
             }()
         }
-        if let selectedForegroundView = _selectedForegroundView {
-            selectedForegroundView.frame = self.contentView.bounds
-        }
+        //        if let selectedForegroundView = _selectedForegroundView {
+        //            selectedForegroundView.frame = self.contentView.bounds
+        //        }
     }
-
+    
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == kvoContext {
             if keyPath == "font" {
