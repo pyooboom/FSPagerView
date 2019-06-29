@@ -81,7 +81,7 @@ open class FSPagerViewCell: UICollectionViewCell {
     open override var isSelected: Bool {
         set {
             super.isSelected = newValue
-            self.selectedForegroundView?.layer.backgroundColor = newValue ? self.selectionColor.cgColor : UIColor.clear.cgColor
+//            self.selectedForegroundView?.layer.backgroundColor = newValue ? self.selectionColor.cgColor : UIColor.clear.cgColor
         }
         get {
             return super.isSelected
