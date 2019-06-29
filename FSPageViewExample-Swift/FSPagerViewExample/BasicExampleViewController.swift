@@ -168,7 +168,7 @@ class BasicExampleViewController: UIViewController,UITableViewDataSource,UITable
         cell.imageView?.image = UIImage(named: self.imageNames[index])
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
-        cell.textLabel?.text = index.description+index.description
+//        cell.textLabel?.text = index.description+index.description
         return cell
     }
     
