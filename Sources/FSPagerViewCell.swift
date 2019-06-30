@@ -48,7 +48,7 @@ open class FSPagerViewCell: UICollectionViewCell {
 //    fileprivate weak var _textLabel: UILabel?
     fileprivate weak var _imageView: UIImageView?
     
-    fileprivate let kvoContext = UnsafeMutableRawPointer(bitPattern: 0)
+//    fileprivate let kvoContext = UnsafeMutableRawPointer(bitPattern: 0)
 //    fileprivate let selectionColor = UIColor(white: 0.2, alpha: 0.2)
     
 //    fileprivate weak var _selectedForegroundView: UIView?
@@ -78,16 +78,16 @@ open class FSPagerViewCell: UICollectionViewCell {
     //            return super.isHighlighted
     //        }
     //    }
-    
-    open override var isSelected: Bool {
-        set {
-            super.isSelected = newValue
-//            self.selectedForegroundView?.layer.backgroundColor = newValue ? self.selectionColor.cgColor : UIColor.clear.cgColor
-        }
-        get {
-            return super.isSelected
-        }
-    }
+//
+//    open override var isSelected: Bool {
+//        set {
+//            super.isSelected = newValue
+////            self.selectedForegroundView?.layer.backgroundColor = newValue ? self.selectionColor.cgColor : UIColor.clear.cgColor
+//        }
+//        get {
+//            return super.isSelected
+//        }
+//    }
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
