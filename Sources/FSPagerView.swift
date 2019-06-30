@@ -332,7 +332,10 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let index = indexPath.item
         self.dequeingSection = indexPath.section
-        let cell = self.dataSource!.pagerView(self, cellForItemAt: index)
+        guard let cell = self.dataSource!.pagerView(self, cellForItemAt: index) as? FSPagerViewCell else {
+            fatalError("需要时FSPagerCelld的子类")
+        }
+        cell.loadContent()
         return cell
     }
     
@@ -468,10 +471,11 @@ open class FSPagerView: UIView,UICollectionViewDataSource,UICollectionViewDelega
     open func dequeueReusableCell(withReuseIdentifier identifier: String, at index: Int) -> FSPagerViewCell {
         let indexPath = IndexPath(item: index, section: self.dequeingSection)
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        guard cell.isKind(of: FSPagerViewCell.self) else {
+        guard let newCell = cell as? FSPagerViewCell else {
             fatalError("Cell class must be subclass of FSPagerViewCell")
         }
-        return cell as! FSPagerViewCell
+        newCell.loadContent()
+        return newCell
     }
     
     /// Reloads all of the data for the collection view.
