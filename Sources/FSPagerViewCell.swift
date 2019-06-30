@@ -35,18 +35,13 @@ open class FSPagerViewCell: UICollectionViewCell {
     open var imageViewFrame: CGRect?
     /// Returns the image view of the pager view cell. Default is nil.
     @objc
-    open var imageView: UIImageView? {
-        if let _ = _imageView {
-            return _imageView
-        }
+    open var imageView: UIImageView {
         let imageView = UIImageView(frame: .zero)
         self.contentView.addSubview(imageView)
-        _imageView = imageView
         return imageView
     }
     
 //    fileprivate weak var _textLabel: UILabel?
-    fileprivate weak var _imageView: UIImageView?
     
 //    fileprivate let kvoContext = UnsafeMutableRawPointer(bitPattern: 0)
 //    fileprivate let selectionColor = UIColor(white: 0.2, alpha: 0.2)
@@ -116,9 +111,8 @@ open class FSPagerViewCell: UICollectionViewCell {
     
     override open func layoutSubviews() {
         super.layoutSubviews()
-        if let imageView = _imageView {
-            imageView.frame = imageViewFrame ?? CGRect(x: 15, y: 4, width: self.bounds.width - 2 * 15, height: 142)
-        }
+        imageView.frame = imageViewFrame ?? CGRect(x: 15, y: 4, width: self.bounds.width - 2 * 15, height: 142)
+        
 //        if let textLabel = _textLabel {
 //            textLabel.superview!.frame = {
 //                var rect = self.contentView.bounds
