@@ -29,7 +29,7 @@ open class FSPagerViewCell: UICollectionViewCell {
         commonInit()
     }
     
-    func commonInit() {
+    open func commonInit() {
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
     }
