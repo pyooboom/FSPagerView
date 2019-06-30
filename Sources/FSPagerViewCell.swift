@@ -10,10 +10,6 @@ import UIKit
 
 open class FSPagerViewCell: UICollectionViewCell {
     
-    open var imageViewFrame: CGRect?
-    /// Returns the image view of the pager view cell. Default is nil.
-    @objc open var imageView: UIImageView!
-    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
@@ -24,13 +20,13 @@ open class FSPagerViewCell: UICollectionViewCell {
         commonInit()
     }
     
-    open func commonInit() {
-
-        imageView = UIImageView(frame: imageViewFrame ?? CGRect(x: 15, y: 4, width: self.bounds.width - 2 * 15, height: 142))
-        self.contentView.addSubview(imageView)
+    func commonInit() {
         
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
     }
     
+    open func loadContent() {
+        
+    }
 }
