@@ -25,16 +25,12 @@ open class FSPagerViewCell: UICollectionViewCell {
     }
     
     open func commonInit() {
-        
-        imageView = UIImageView(frame: .zero)
+
+        imageView = UIImageView(frame: imageViewFrame ?? CGRect(x: 15, y: 4, width: self.bounds.width - 2 * 15, height: 142))
         self.contentView.addSubview(imageView)
         
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = UIColor.clear
     }
     
-    override open func layoutSubviews() {
-        super.layoutSubviews()
-        imageView.frame = imageViewFrame ?? CGRect(x: 15, y: 4, width: self.bounds.width - 2 * 15, height: 142)
-    }
 }
