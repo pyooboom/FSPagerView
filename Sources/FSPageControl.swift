@@ -117,6 +117,8 @@ open class FSPageControl: UIControl {
             case .right, .trailing:
                 let contentWidth = diameter*CGFloat(self.numberOfPages) + CGFloat(self.numberOfPages-1)*spacing
                 return contentView.frame.width - contentWidth
+            default:
+                return 0
             }
         }()
         for (index,value) in self.indicatorLayers.enumerated() {
